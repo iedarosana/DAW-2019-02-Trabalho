@@ -28,9 +28,9 @@ public class TestePersistirNota {
         n.setNota01(0.4);
         n.setNota02(0.4);
         n.setMedia(0.4);
-        Aluno a = em.find(Aluno.class, 2);
+        Aluno a = em.find(Aluno.class, 4);
         n.setAluno(a);
-        Disciplina d = em.find(Disciplina.class, 9);
+        Disciplina d = em.find(Disciplina.class, 10);
         n.setDisciplina(d);
         em.getTransaction().begin();
         em.persist(n);

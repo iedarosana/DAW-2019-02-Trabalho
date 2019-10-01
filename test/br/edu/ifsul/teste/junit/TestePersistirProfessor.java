@@ -8,6 +8,7 @@ package br.edu.ifsul.teste.junit;
 import br.edu.ifsul.jpa.EntityManagerUtil;
 import br.edu.ifsul.modelo.Especialidade;
 import br.edu.ifsul.modelo.Professor;
+import java.util.Calendar;
 import javax.persistence.EntityManager;
 import org.junit.Test;
 
@@ -24,9 +25,12 @@ public class TestePersistirProfessor {
     public void teste() {
         EntityManager em = EntityManagerUtil.getEntityManager();
         Professor p = new Professor();
-        p.setTitulacao("Mestre");
-        p.setTopicosInteresse("Desenvolvimento Web");
-        Especialidade e = em.find(Especialidade.class, 2);
+        p.setNome("Ieda");
+        p.setEmail("iedarosana@gmail.com");
+        p.setNascimento(Calendar.getInstance());
+        p.setTitulacao("Doutor");
+        p.setTopicosInteresse("Testes");
+        Especialidade e = em.find(Especialidade.class, 7);
         p.setEspecialidade(e);
         em.getTransaction().begin();
         em.persist(p);

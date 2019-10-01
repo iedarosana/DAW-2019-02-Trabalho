@@ -8,9 +8,6 @@ package br.edu.ifsul.modelo;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,35 +15,32 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
+
 /**
  *
  * @author ieda
  */
-@Entity 
+@Entity
 @Table(name = "professor")
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Professor implements Serializable {
-    
-   
-    @NotBlank(message = " A titulacao deve ser informada")
-    @Length(max = 50,message = "A titulacao não pode ser mais que{max} caracteres")
+public class Professor extends Aluno implements Serializable{
+    @NotBlank(message = "A titulação deve ser informado")
+    @Length(max = 50,message = "A titulação não pode ser mais que{max} caracteres")
     @Column(name = "titulacao", nullable = false, length = 50)
-    
-    @Id
     private String titulacao;
-    @NotBlank(message = " Tópicos de interesse deve ser informado")
+    
+    @NotBlank(message = "Tópicos de interesse deve ser informado")
     @Column(name = "topicosInteresse", nullable = false)
     private String topicosInteresse;
     
-    @NotNull(message = "A especialidade deve ser informado")
+    @NotNull(message = "A especialidade deve ser informada")
     @ManyToOne
     @JoinColumn(name = "especialidade", referencedColumnName = "Id", nullable = false)
     private Especialidade especialidade;
     
-    public Professor (){
-        
-    }
-
+    
+    public Professor(){
+}
+    
     public String getTitulacao() {
         return titulacao;
     }

@@ -28,7 +28,7 @@ public class TestePersistirDisciplina {
         d.setDescricao("Disciplina Programação para Web voltado para profissionais....");
         d.setCargaHoraria(40.4);
         d.setConhecimentosMinimos("Conhecimentos em Desenvolvimento Java");
-        Curso c = em.find(Curso.class, 9);
+        Curso c = em.find(Curso.class, 12);
         d.setCurso(c);
         em.getTransaction().begin();
         em.persist(d);

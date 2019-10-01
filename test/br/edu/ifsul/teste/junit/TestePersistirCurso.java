@@ -28,7 +28,7 @@ public class TestePersistirCurso {
         c.setNome("Ciência da Computação");
         c.setDescricao("Curso ciência da computação voltado para profissionais....");
         c.setInicioAtividades(Calendar.getInstance());
-        Instituicao i = em.find(Instituicao.class, 3);
+        Instituicao i = em.find(Instituicao.class, 5);
         c.setInstituicao(i);
         em.getTransaction().begin();
         em.persist(c);
